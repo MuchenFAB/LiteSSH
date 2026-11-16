@@ -1,0 +1,130 @@
+<miuix:MiuixWindow x:Class="LiteSSH.Views.SettingsDialog"
+                   xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                   xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                   xmlns:miuix="clr-namespace:LiteSSH.Miuix"
+                   Title="{miuix:Tr Settings.Title}"
+                   Width="660" Height="700"
+                   ResizeMode="NoResize"
+                   ShowInTaskbar="False"
+                   WindowStartupLocation="CenterOwner">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="48" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="62" />
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row="0" Background="Transparent" MouseLeftButtonDown="TitleBar_MouseDown">
+            <TextBlock Text="{miuix:Tr Settings.Title}" Style="{StaticResource H2Text}" Margin="22,0,0,0" />
+            <Button Style="{StaticResource ChromeCloseButton}" Content="&#xE711;" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,0,8,0" Click="Close_Click" />
+        </Grid>
+
+        <ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Auto">
+            <StackPanel Margin="22,0,22,10">
+
+                <TextBlock Text="{miuix:Tr Settings.Appearance}" Style="{StaticResource CaptionText}" Margin="4,0,0,7" />
+                <Border Style="{StaticResource MiuixCard}" Padding="16,12">
+                    <StackPanel>
+                        <Grid>
+                            <TextBlock Text="{miuix:Tr Settings.Theme}" Style="{StaticResource BodyText}" />
+                            <ComboBox x:Name="ThemeBox" Style="{StaticResource MiuixComboBox}" Width="180" HorizontalAlignment="Right"
+                                      SelectionChanged="ThemeBox_SelectionChanged">
+                                <ComboBoxItem Content="{miuix:Tr Settings.ThemeAuto}" />
+                                <ComboBoxItem Content="{miuix:Tr Settings.ThemeLight}" />
+                                <ComboBoxItem Content="{miuix:Tr Settings.ThemeDark}" />
+                            </ComboBox>
+                        </Grid>
+
+                        <Grid Margin="0,14,0,0">
+                            <TextBlock Text="{miuix:Tr Settings.Accent}" Style="{StaticResource BodyText}" />
+                            <WrapPanel x:Name="AccentPanel" HorizontalAlignment="Right" />
+                        </Grid>
+
+                        <Grid Margin="0,14,0,0">
+                            <TextBlock Text="{miuix:Tr Settings.Language}" Style="{StaticResource BodyText}" />
+                            <ComboBox x:Name="LanguageBox" Style="{StaticResource MiuixComboBox}" Width="180" HorizontalAlignment="Right"
+                                      SelectionChanged="LanguageBox_SelectionChanged">
+                                <ComboBoxItem Content="简体中文" />
+                                <ComboBoxItem Content="English" />
+                            </ComboBox>
+                        </Grid>
+                    </StackPanel>
+                </Border>
+
+                <TextBlock Text="{miuix:Tr Settings.Terminal}" Style="{StaticResource CaptionText}" Margin="4,18,0,7" />
+                <Border Style="{StaticResource MiuixCard}" Padding="16,12">
+                    <StackPanel>
+                        <Grid>
+                            <TextBlock Text="{miuix:Tr Settings.TermTheme}" Style="{StaticResource BodyText}" />
+                            <ComboBox x:Name="TermThemeBox" Style="{StaticResource MiuixComboBox}" Width="220" HorizontalAlignment="Right"
+                                      SelectionChanged="TermThemeBox_SelectionChanged" />
+                        </Grid>
+
+                        <Grid Margin="0,12,0,0">
+                            <TextBlock Text="{miuix:Tr Settings.Font}" Style="{StaticResource BodyText}" />
+                            <ComboBox x:Name="FontBox" Style="{StaticResource MiuixComboBox}" Width="300" HorizontalAlignment="Right"
+                                      SelectionChanged="FontBox_SelectionChanged" />
+                        </Grid>
+
+                        <Grid Margin="0,14,0,0">
+                            <TextBlock Text="{miuix:Tr Settings.FontSize}" Style="{StaticResource BodyText}" />
+                            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                                <Slider x:Name="FontSizeSlider" Style="{StaticResource MiuixSlider}" Width="170" Minimum="10" Maximum="24"
+                                        IsSnapToTickEnabled="True" TickFrequency="1" ValueChanged="FontSizeSlider_ValueChanged" />
+                                <TextBlock x:Name="FontSizeLabel" Style="{StaticResource CaptionText}" Margin="10,0,0,0" Width="26" />
+                            </StackPanel>
+                        </Grid>
+
+                        <Grid Margin="0,12,0,0">
+                            <TextBlock Text="{miuix:Tr Settings.Scrollback}" Style="{StaticResource BodyText}" />
+                            <ComboBox x:Name="ScrollbackBox" Style="{StaticResource MiuixComboBox}" Width="180" HorizontalAlignment="Right"
+                                      SelectionChanged="ScrollbackBox_SelectionChanged" />
+                        </Grid>
+
+                        <Grid Margin="0,16,0,0">
+                            <TextBlock Text="{miuix:Tr Settings.CopyOnSelect}" Style="{StaticResource BodyText}" />
+                            <ToggleButton x:Name="CopyOnSelectSwitch" Style="{StaticResource MiuixSwitch}" HorizontalAlignment="Right" Click="Toggle_Click" />
+                        </Grid>
+
+                        <Grid Margin="0,12,0,0">
+                            <TextBlock Text="{miuix:Tr Settings.ConfirmClose}" Style="{StaticResource BodyText}" />
+                            <ToggleButton x:Name="ConfirmCloseSwitch" Style="{StaticResource MiuixSwitch}" HorizontalAlignment="Right" Click="Toggle_Click" />
+                        </Grid>
+
+                        <Grid Margin="0,12,0,0">
+                            <TextBlock Text="{miuix:Tr Settings.SftpDefault}" Style="{StaticResource BodyText}" />
+                            <ToggleButton x:Name="SftpDefaultSwitch" Style="{StaticResource MiuixSwitch}" HorizontalAlignment="Right" Click="Toggle_Click" />
+                        </Grid>
+                    </StackPanel>
+                </Border>
+
+                <TextBlock Text="{miuix:Tr Settings.About}" Style="{StaticResource CaptionText}" Margin="4,18,0,7" />
+                <Border Style="{StaticResource MiuixCard}" Padding="16,12">
+                    <StackPanel>
+                        <Grid>
+                            <TextBlock Text="{miuix:Tr Settings.Version}" Style="{StaticResource BodyText}" />
+                            <TextBlock x:Name="VersionLabel" Style="{StaticResource CaptionText}" HorizontalAlignment="Right" />
+                        </Grid>
+                        <Grid Margin="0,10,0,0">
+                            <TextBlock Text="{miuix:Tr Settings.Storage}" Style="{StaticResource BodyText}" />
+                        </Grid>
+                        <TextBlock x:Name="StorageLabel" Style="{StaticResource CaptionText}" FontFamily="{StaticResource MonoFont}"
+                                   FontSize="11" TextWrapping="Wrap" Margin="0,4,0,0" />
+                        <TextBlock Text="{miuix:Tr Settings.StorageHint}" Style="{StaticResource CaptionText}" TextWrapping="Wrap" Margin="0,8,0,0" />
+                        <TextBlock Text="{miuix:Tr Settings.MadeWith}" Style="{StaticResource CaptionText}" TextWrapping="Wrap" Margin="0,10,0,0" />
+                    </StackPanel>
+                </Border>
+
+            </StackPanel>
+        </ScrollViewer>
+
+        <Border Grid.Row="2" BorderBrush="{DynamicResource Border}" BorderThickness="0,1,0,0">
+            <Grid Margin="22,0">
+                <TextBlock x:Name="HintLabel" Style="{StaticResource CaptionText}" VerticalAlignment="Center" TextWrapping="Wrap" />
+                <Button Style="{StaticResource PrimaryButton}" Content="{miuix:Tr Action.Close}" MinWidth="96"
+                        HorizontalAlignment="Right" VerticalAlignment="Center" Click="Close_Click" />
+            </Grid>
+        </Border>
+    </Grid>
+</miuix:MiuixWindow>

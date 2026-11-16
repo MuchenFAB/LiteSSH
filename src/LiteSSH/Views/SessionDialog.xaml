@@ -1,0 +1,115 @@
+<miuix:MiuixWindow x:Class="LiteSSH.Views.SessionDialog"
+                   xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                   xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                   xmlns:miuix="clr-namespace:LiteSSH.Miuix"
+                   Title="{miuix:Tr Session.New}"
+                   Width="560" Height="660"
+                   ResizeMode="NoResize"
+                   ShowInTaskbar="False"
+                   WindowStartupLocation="CenterOwner">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="48" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="64" />
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row="0" Background="Transparent" MouseLeftButtonDown="TitleBar_MouseDown">
+            <TextBlock x:Name="TitleLabel" Text="{miuix:Tr Session.New}" Style="{StaticResource H2Text}" Margin="22,0,0,0" />
+            <Button Style="{StaticResource ChromeCloseButton}" Content="&#xE711;" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,0,8,0" Click="Cancel_Click" />
+        </Grid>
+
+        <ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Auto" Margin="0">
+            <StackPanel Margin="22,4,22,10">
+
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="12" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <StackPanel Grid.Column="0">
+                        <TextBlock Text="{miuix:Tr Session.Name}" Style="{StaticResource CaptionText}" Margin="2,0,0,5" />
+                        <TextBox x:Name="NameBox" Style="{StaticResource MiuixTextBox}" />
+                    </StackPanel>
+                    <StackPanel Grid.Column="2">
+                        <TextBlock Text="{miuix:Tr Session.Group}" Style="{StaticResource CaptionText}" Margin="2,0,0,5" />
+                        <TextBox x:Name="GroupBox" Style="{StaticResource MiuixTextBox}" />
+                    </StackPanel>
+                </Grid>
+
+                <Grid Margin="0,12,0,0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="12" />
+                        <ColumnDefinition Width="104" />
+                    </Grid.ColumnDefinitions>
+                    <StackPanel Grid.Column="0">
+                        <TextBlock Text="{miuix:Tr Session.Host}" Style="{StaticResource CaptionText}" Margin="2,0,0,5" />
+                        <TextBox x:Name="HostBox" Style="{StaticResource MiuixTextBox}" Tag="example.com" />
+                    </StackPanel>
+                    <StackPanel Grid.Column="2">
+                        <TextBlock Text="{miuix:Tr Session.Port}" Style="{StaticResource CaptionText}" Margin="2,0,0,5" />
+                        <TextBox x:Name="PortBox" Style="{StaticResource MiuixTextBox}" Text="22" />
+                    </StackPanel>
+                </Grid>
+
+                <StackPanel Margin="0,12,0,0">
+                    <TextBlock Text="{miuix:Tr Session.User}" Style="{StaticResource CaptionText}" Margin="2,0,0,5" />
+                    <TextBox x:Name="UserBox" Style="{StaticResource MiuixTextBox}" Text="root" />
+                </StackPanel>
+
+                <StackPanel Margin="0,12,0,0">
+                    <TextBlock Text="{miuix:Tr Session.Auth}" Style="{StaticResource CaptionText}" Margin="2,0,0,5" />
+                    <ComboBox x:Name="AuthBox" Style="{StaticResource MiuixComboBox}" SelectionChanged="AuthBox_SelectionChanged">
+                        <ComboBoxItem Content="{miuix:Tr Session.AuthPassword}" />
+                        <ComboBoxItem Content="{miuix:Tr Session.AuthKey}" />
+                    </ComboBox>
+                </StackPanel>
+
+                <StackPanel x:Name="PasswordPanel" Margin="0,12,0,0">
+                    <TextBlock Text="{miuix:Tr Session.Password}" Style="{StaticResource CaptionText}" Margin="2,0,0,5" />
+                    <PasswordBox x:Name="PasswordInput" Style="{StaticResource MiuixPasswordBox}" />
+                    <Grid Margin="2,10,0,0">
+                        <TextBlock Text="{miuix:Tr Session.SavePassword}" Style="{StaticResource BodyText}" />
+                        <ToggleButton x:Name="SavePasswordSwitch" Style="{StaticResource MiuixSwitch}" HorizontalAlignment="Right" IsChecked="True" />
+                    </Grid>
+                </StackPanel>
+
+                <StackPanel x:Name="KeyPanel" Margin="0,12,0,0" Visibility="Collapsed">
+                    <TextBlock Text="{miuix:Tr Session.KeyPath}" Style="{StaticResource CaptionText}" Margin="2,0,0,5" />
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="Auto" />
+                        </Grid.ColumnDefinitions>
+                        <TextBox x:Name="KeyPathBox" Style="{StaticResource MiuixTextBox}" />
+                        <Button Grid.Column="1" Style="{StaticResource SecondaryButton}" Content="{miuix:Tr Action.Browse}" Margin="8,0,0,0" Click="BrowseKey_Click" />
+                    </Grid>
+                    <TextBlock Text="{miuix:Tr Session.KeyPassphrase}" Style="{StaticResource CaptionText}" Margin="2,12,0,5" />
+                    <PasswordBox x:Name="KeyPassBox" Style="{StaticResource MiuixPasswordBox}" />
+                </StackPanel>
+
+                <StackPanel Margin="0,16,0,0">
+                    <TextBlock Text="{miuix:Tr Session.Color}" Style="{StaticResource CaptionText}" Margin="2,0,0,7" />
+                    <WrapPanel x:Name="ColorsPanel" />
+                </StackPanel>
+
+            </StackPanel>
+        </ScrollViewer>
+
+        <Border Grid.Row="2" BorderBrush="{DynamicResource Border}" BorderThickness="0,1,0,0">
+            <Grid Margin="22,0">
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Center">
+                    <TextBlock x:Name="ErrorLabel" Foreground="{DynamicResource Danger}" Style="{StaticResource CaptionText}" />
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Center">
+                    <Button Style="{StaticResource SecondaryButton}" Content="{miuix:Tr Action.Cancel}" MinWidth="84" Click="Cancel_Click" />
+                    <Button Style="{StaticResource SecondaryButton}" Content="{miuix:Tr Action.Save}" MinWidth="84" Margin="8,0,0,0" Click="Save_Click" />
+                    <Button Style="{StaticResource PrimaryButton}" Content="{miuix:Tr Action.Connect}" MinWidth="96" Margin="8,0,0,0" Click="SaveConnect_Click" />
+                </StackPanel>
+            </Grid>
+        </Border>
+    </Grid>
+</miuix:MiuixWindow>

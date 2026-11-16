@@ -1,0 +1,25 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "LiteSSH (Debug)",
+      "type": "coreclr",
+      "request": "launch",
+      "preLaunchTask": "build",
+      "program": "${workspaceFolder}\\src\\LiteSSH\\bin\\Debug\\net6.0-windows\\LiteSSH.dll",
+      "args": [],
+      "cwd": "${workspaceFolder}\\src\\LiteSSH\\bin\\Debug\\net6.0-windows",
+      "console": "internalConsole",
+      "stopAtEntry": false,
+      "env": {
+        "DOTNET_ENVIRONMENT": "Development"
+      }
+    },
+    {
+      "name": "LiteSSH (Attach)",
+      "type": "coreclr",
+      "request": "attach",
+      "processName": "LiteSSH"
+    }
+  ]
+}

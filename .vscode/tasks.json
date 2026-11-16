@@ -1,0 +1,92 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "build",
+      "detail": "dotnet build (Debug)",
+      "type": "process",
+      "command": "dotnet",
+      "args": [
+        "build",
+        "${workspaceFolder}\\src\\LiteSSH\\LiteSSH.csproj",
+        "-c",
+        "Debug",
+        "-p:NoWarn=NETSDK1138",
+        "--nologo"
+      ],
+      "problemMatcher": "$msCompile",
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      },
+      "presentation": {
+        "reveal": "silent",
+        "clear": true,
+        "panel": "shared"
+      }
+    },
+    {
+      "label": "clean",
+      "detail": "Remove build output",
+      "type": "process",
+      "command": "dotnet",
+      "args": [
+        "clean",
+        "${workspaceFolder}\\src\\LiteSSH\\LiteSSH.csproj",
+        "--nologo"
+      ],
+      "problemMatcher": []
+    },
+    {
+      "label": "publish",
+      "detail": "Single-file Release build into dist\\",
+      "type": "process",
+      "command": "dotnet",
+      "args": [
+        "publish",
+        "${workspaceFolder}\\src\\LiteSSH\\LiteSSH.csproj",
+        "-c",
+        "Release",
+        "-r",
+        "win-x64",
+        "-p:PublishSingleFile=true",
+        "-p:SelfContained=false",
+        "-p:DebugType=None",
+        "-p:DebugSymbols=false",
+        "-p:NoWarn=NETSDK1138",
+        "-o",
+        "${workspaceFolder}\\dist",
+        "--nologo"
+      ],
+      "problemMatcher": "$msCompile",
+      "group": "build"
+    },
+    {
+      "label": "publish-selfcontained",
+      "detail": "Single-file Release build with bundled .NET runtime",
+      "type": "process",
+      "command": "dotnet",
+      "args": [
+        "publish",
+        "${workspaceFolder}\\src\\LiteSSH\\LiteSSH.csproj",
+        "-c",
+        "Release",
+        "-r",
+        "win-x64",
+        "--self-contained",
+        "true",
+        "-p:PublishSingleFile=true",
+        "-p:IncludeNativeLibrariesForSelfExtract=true",
+        "-p:EnableCompressionInSingleFile=true",
+        "-p:DebugType=None",
+        "-p:DebugSymbols=false",
+        "-p:NoWarn=NETSDK1138",
+        "-o",
+        "${workspaceFolder}\\dist\\selfcontained",
+        "--nologo"
+      ],
+      "problemMatcher": "$msCompile",
+      "group": "build"
+    }
+  ]
+}

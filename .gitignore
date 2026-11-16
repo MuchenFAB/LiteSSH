@@ -1,0 +1,18 @@
+# Build output
+bin/
+obj/
+dist/
+
+# Original JavaScript reference source (not part of this project)
+easyssh-main/
+
+# Portable runtime data
+LiteSSH.dat
+LiteSSH.dat.tmp
+
+# IDE / OS
+.vs/
+*.user
+*.suo
+Thumbs.db
+desktop.ini

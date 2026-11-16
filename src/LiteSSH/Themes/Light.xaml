@@ -1,0 +1,28 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <SolidColorBrush x:Key="WindowBg" Color="#F3F4F7" />
+    <SolidColorBrush x:Key="SidebarBg" Color="#ECEEF2" />
+    <SolidColorBrush x:Key="Surface" Color="#FFFFFF" />
+    <SolidColorBrush x:Key="SurfaceAlt" Color="#F6F7FA" />
+    <SolidColorBrush x:Key="SurfaceHover" Color="#E9EBF1" />
+    <SolidColorBrush x:Key="SurfacePressed" Color="#DFE2EA" />
+    <SolidColorBrush x:Key="Border" Color="#E2E4EA" />
+    <SolidColorBrush x:Key="BorderStrong" Color="#CFD2DB" />
+    <SolidColorBrush x:Key="TextPrimary" Color="#15161A" />
+    <SolidColorBrush x:Key="TextSecondary" Color="#63666F" />
+    <SolidColorBrush x:Key="TextTertiary" Color="#9396A0" />
+    <SolidColorBrush x:Key="TextOnAccent" Color="#FFFFFF" />
+    <SolidColorBrush x:Key="Accent" Color="#3482FF" />
+    <SolidColorBrush x:Key="AccentHover" Color="#2A73EB" />
+    <SolidColorBrush x:Key="AccentPressed" Color="#1F63D2" />
+    <SolidColorBrush x:Key="AccentSoft" Color="#E7EFFF" />
+    <SolidColorBrush x:Key="Danger" Color="#E04A4F" />
+    <SolidColorBrush x:Key="DangerSoft" Color="#FDECEC" />
+    <SolidColorBrush x:Key="Success" Color="#12945F" />
+    <SolidColorBrush x:Key="Warning" Color="#C77700" />
+    <SolidColorBrush x:Key="Overlay" Color="#6615151A" />
+    <SolidColorBrush x:Key="ChromeHover" Color="#14000000" />
+    <SolidColorBrush x:Key="ChromeCloseHover" Color="#E04A4F" />
+
+</ResourceDictionary>
