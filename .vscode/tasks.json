@@ -3,7 +3,7 @@
   "tasks": [
     {
       "label": "build",
-      "detail": "dotnet build (Debug)",
+      "detail": "dotnet build (Debug) -> src\\LiteSSH\\bin\\Debug\\net6.0-windows\\LiteSSH.exe",
       "type": "process",
       "command": "dotnet",
       "args": [
@@ -26,8 +26,24 @@
       }
     },
     {
+      "label": "build-and-run",
+      "detail": "Build then launch the exe (no debugger)",
+      "dependsOn": "build",
+      "type": "process",
+      "command": "${workspaceFolder}\\src\\LiteSSH\\bin\\Debug\\net6.0-windows\\LiteSSH.exe",
+      "args": [],
+      "options": {
+        "cwd": "${workspaceFolder}\\src\\LiteSSH\\bin\\Debug\\net6.0-windows"
+      },
+      "problemMatcher": [],
+      "presentation": {
+        "reveal": "always",
+        "panel": "shared"
+      }
+    },
+    {
       "label": "clean",
-      "detail": "Remove build output",
+      "detail": "Remove build output (bin / obj)",
       "type": "process",
       "command": "dotnet",
       "args": [
@@ -39,7 +55,7 @@
     },
     {
       "label": "publish",
-      "detail": "Single-file Release build into dist\\",
+      "detail": "Single-file Release exe into dist\\ (needs .NET 6 Desktop Runtime)",
       "type": "process",
       "command": "dotnet",
       "args": [
@@ -59,11 +75,15 @@
         "--nologo"
       ],
       "problemMatcher": "$msCompile",
-      "group": "build"
+      "group": "build",
+      "presentation": {
+        "reveal": "always",
+        "panel": "shared"
+      }
     },
     {
       "label": "publish-selfcontained",
-      "detail": "Single-file Release build with bundled .NET runtime",
+      "detail": "Single-file Release exe with bundled .NET runtime into dist\\selfcontained\\",
       "type": "process",
       "command": "dotnet",
       "args": [
@@ -86,7 +106,23 @@
         "--nologo"
       ],
       "problemMatcher": "$msCompile",
-      "group": "build"
+      "group": "build",
+      "presentation": {
+        "reveal": "always",
+        "panel": "shared"
+      }
+    },
+    {
+      "label": "publish-and-run",
+      "detail": "Publish single-file exe then start it",
+      "dependsOn": "publish",
+      "type": "process",
+      "command": "${workspaceFolder}\\dist\\LiteSSH.exe",
+      "args": [],
+      "options": {
+        "cwd": "${workspaceFolder}\\dist"
+      },
+      "problemMatcher": []
     }
   ]
 }

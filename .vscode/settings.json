@@ -1,0 +1,19 @@
+{
+  "files.exclude": {
+    "**/bin": true,
+    "**/obj": true,
+    "easyssh-main": true
+  },
+  "search.exclude": {
+    "easyssh-main": true,
+    "**/bin": true,
+    "**/obj": true,
+    "dist": true
+  },
+  "files.associations": {
+    "*.xaml": "xml"
+  },
+  "dotnet.server.useOmnisharp": false,
+  "csharp.debug.console": "internalConsole",
+  "terminal.integrated.defaultProfile.windows": "PowerShell"
+}
