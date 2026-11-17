@@ -2,7 +2,7 @@
 
 > 一个用 .NET 6 + WPF 重写的轻量 SSH / SFTP 桌面客户端 —— 单文件、绿色免安装、界面遵循 Miuix 设计语言。
 
-LiteSSH 源自对 [EasySSH](https://github.com/NeoHeee/EasySSH)（Rust + Tauri + WebView 实现）的功能重构：
+LiteSSH 源自对 [EasySSH](https://easyssh.cn/)（Rust + Tauri + WebView 实现）的功能重构：
 保留核心的 SSH 终端与文件传输体验，用原生 .NET 重写全部内核与界面，去掉 WebView、Electron 与安装器，
 最终产物是**一个可执行文件**，整个程序文件夹拷走即可使用。
 
@@ -189,14 +189,14 @@ LiteSSH/
 
 ## 许可证
 
-[MIT](./LICENSE)
+[Apache 2.0](./LICENSE)
 
 ---
 
 ## English
 
 **LiteSSH** is a lightweight SSH / SFTP client for Windows, rewritten from
-[EasySSH](https://github.com/NeoHeee/EasySSH) in **.NET 6 + WPF** — no WebView, no installer,
+[EasySSH](https://easyssh.cn/) in **.NET 6 + WPF** — no WebView, no installer,
 no registry writes.
 
 - Custom VT100/xterm emulator (256 / true color, alt screen, wide CJK, bracketed paste)

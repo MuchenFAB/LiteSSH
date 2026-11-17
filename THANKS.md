@@ -24,7 +24,7 @@ LiteSSH 的诞生离不开这些开源项目与创作者，在此致以诚挚感
 
 | 项目 | 说明 |
 | --- | --- |
-| [EasySSH](https://github.com/NeoHeee/EasySSH) | LiteSSH 的功能与交互参考来源（Rust + Tauri 实现）。LiteSSH 为独立的 .NET 重写版本，仅借鉴其产品功能与交互思路，不复用其代码 |
+| [EasySSH](https://easyssh.cn/) | LiteSSH 的功能与交互参考来源（Rust + Tauri 实现）。LiteSSH 为独立的 .NET 重写版本，仅借鉴其产品功能与交互思路，不复用其代码 |
 
 ## 终端协议参考
 
@@ -36,7 +36,3 @@ LiteSSH 的诞生离不开这些开源项目与创作者，在此致以诚挚感
 
 - `Cascadia Mono`、`Segoe Fluent Icons`、`Microsoft YaHei UI` — 随 Windows / Windows Terminal 提供，LiteSSH 仅引用系统字体，不分发字体文件
 
-## 特别感谢
-
-- 所有在 [EasySSH](https://github.com/NeoHeee/EasySSH) 提交反馈、报告缺陷的用户，他们的经验塑造了 LiteSSH 的功能取舍
-- 以及每一位愿意给这个项目提 Issue、提 PR 的你
